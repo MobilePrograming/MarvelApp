@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_id"
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    android:clickable="true"
+    android:foreground="?selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/rv_image_big"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.498"/>
+
+        <TextView
+            android:id="@+id/tv_name_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:hint="character_name"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            card_view:layout_constraintBottom_toTopOf="@+id/tv_character_short_bio"
+            card_view:layout_constraintStart_toStartOf="@+id/rv_image_big" />
+
+        <TextView
+            android:id="@+id/tv_character_short_bio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:hint="character_short_bio"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            card_view:layout_constraintBottom_toBottomOf="@+id/rv_image_big"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="@+id/rv_image_big" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
