@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bookMarkFragment">
+
+    <fragment
+        android:id="@+id/bookMarkFragment"
+        android:name="com.guessaname.marvelapp.ui.fragment.BookMarkFragment"
+        android:label="@string/title_bookmarks"
+        tools:layout="@layout/fragment_book_mark" />
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.guessaname.marvelapp.ui.fragment.CharactersFragment"
+        android:label="@string/title_characters"
+        tools:layout="@layout/fragment_character"  >
+    <action
+        android:id="@+id/action_characterFragment_to_characterDetailFragment"
+        app:destination="@id/characterDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.guessaname.marvelapp.ui.fragmentdetail.CharactersDetailFragment"
+        tools:layout="@layout/fragment_character_detail" >
+        <argument
+            android:name="character"
+            app:argType="com.guessaname.marvelapp.data.model.Character" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/creatorsFragment"
+        android:name="com.guessaname.marvelapp.ui.fragment.CreatorsFragment"
+        android:label="@string/title_creators"
+        tools:layout="@layout/fragment_creators" >
+    <action
+        android:id="@+id/action_creatorsFragment_to_creatorsDetailFragment"
+        app:destination="@id/creatorsDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/creatorsDetailFragment"
+        android:name="com.guessaname.marvelapp.ui.fragmentdetail.CreatorsDetailFragment"
+        tools:layout="@layout/fragment_creators_detail" >
+        <argument
+            android:name="creator"
+            app:argType="com.guessaname.marvelapp.data.model.Creator" />
+    </fragment>
+</navigation>

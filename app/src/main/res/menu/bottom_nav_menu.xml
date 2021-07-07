@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bookMarkFragment"
+        android:icon="@drawable/bookmarks_black_24dp"
+        android:title="@string/title_bookmarks" />
+
+    <item
+        android:id="@+id/characterFragment"
+        android:icon="@drawable/groups_black_24dp"
+        android:title="@string/title_characters" />
+
+    <item
+        android:id="@+id/creatorsFragment"
+        android:icon="@drawable/edit_black_24dp"
+        android:title="@string/title_creators" />
+</menu>
