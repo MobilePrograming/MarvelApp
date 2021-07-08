@@ -11,8 +11,10 @@ class Constant {
 
     companion object {
         const val BASE_URL = "http://gateway.marvel.com/v1/public/"
+        const val AVENGERS_URL = "http://gateway.marvel.com/v1/public/events/29/"
         const val THOR_URL = "http://gateway.marvel.com/v1/public/series/581/"
         const val IRONMAN_URL = "http://gateway.marvel.com/v1/public/series/2029/"
+      
         val ts = Timestamp(System.currentTimeMillis()).time.toString()
         const val API_KEY = "6599151f190582a1330bf1ca426e61c9"
         const val PRIVATE_KEY = "98b0a1e29a8a13c70d410ed685373518c17c38a5"
