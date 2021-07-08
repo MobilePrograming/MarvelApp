@@ -1,11 +1,9 @@
 package com.guessaname.marvelapp.ui.fragmentdetail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -17,7 +15,6 @@ import com.guessaname.marvelapp.ui.adapter.ComicsAdapter
 import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.autoCleared
 import kotlinx.android.synthetic.main.fragment_character_detail.*
-import kotlinx.android.synthetic.main.fragment_comic.*
 
 
 class CharactersDetailFragment : Fragment() {
@@ -33,7 +30,7 @@ class CharactersDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        setHasOptionsMenu(true)
         binding = FragmentCharacterDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -75,4 +72,26 @@ class CharactersDetailFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.add("Menu item")
+            .setIcon(R.drawable.bookmarks)
+            .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
+    }
+
+   override fun onOptionsItemSelected(item: MenuItem): Boolean {
+       when (item.itemId) {
+           android.R.id.home -> {
+               activity?.onBackPressed()
+               return true
+           }
+           R.drawable.bookmarks->{
+               activity?.onBackPressed()
+               return true
+           }
+
+
+       }
+       return super.onOptionsItemSelected(item)
+   }
 }

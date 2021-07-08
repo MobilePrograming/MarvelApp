@@ -61,4 +61,6 @@ class ComicsDetailFragment : Fragment() {
                 .into(binding.comicDetailImage)
         }
     }
+
+
 }
