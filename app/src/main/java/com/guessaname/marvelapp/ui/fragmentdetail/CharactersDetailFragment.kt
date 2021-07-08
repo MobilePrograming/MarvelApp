@@ -6,14 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.guessaname.marvelapp.MainActivity
 import com.guessaname.marvelapp.R
 import com.guessaname.marvelapp.data.model.Character
 import com.guessaname.marvelapp.databinding.FragmentCharacterDetailBinding
+import com.guessaname.marvelapp.ui.adapter.ComicsAdapter
 import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.autoCleared
+import kotlinx.android.synthetic.main.fragment_character_detail.*
+import kotlinx.android.synthetic.main.fragment_comic.*
 
 
 class CharactersDetailFragment : Fragment() {
@@ -40,6 +44,7 @@ class CharactersDetailFragment : Fragment() {
 
 
         viewModel = (activity as MainActivity).charactersViewModel
+        recyclerView()
         val character = arguments?.getSerializable("character")
         setup(character as Character)
 
@@ -48,8 +53,8 @@ class CharactersDetailFragment : Fragment() {
     }
 
     private fun setup(character: Character) {
-        binding.characterDetailTitle.text = character.charactername
         binding.characterDetailExplanation.text = character.characterdescription
+        binding.comicsRecyclerview
         activity?.let {
             val requestOptions = RequestOptions()
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
@@ -59,6 +64,15 @@ class CharactersDetailFragment : Fragment() {
                 .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(binding.characterDetailImage)
+        }
+    }
+
+    private fun recyclerView(){
+        var comicsAdapter = ComicsAdapter()
+        comics_recyclerview.apply {
+            adapter = comicsAdapter
+            comicsAdapter.notifyDataSetChanged()
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
         }
     }
 }

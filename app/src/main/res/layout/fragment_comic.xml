@@ -7,13 +7,13 @@
     android:paddingBottom="?actionBarSize">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvBookmark"
+        android:id="@+id/rvComic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
 
     <ProgressBar
-        android:id="@+id/bookmarkprogressBar"
+        android:id="@+id/comicprogressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

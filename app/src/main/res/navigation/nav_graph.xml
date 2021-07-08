@@ -5,11 +5,19 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/bookMarkFragment">
 
+
+
     <fragment
         android:id="@+id/bookMarkFragment"
-        android:name="com.guessaname.marvelapp.ui.fragment.BookMarkFragment"
+        android:name="com.guessaname.marvelapp.ui.fragment.BookmarksFragment"
         android:label="@string/title_bookmarks"
-        tools:layout="@layout/fragment_book_mark" />
+        tools:layout="@layout/fragment_book_mark" >
+    <action
+    android:id="@+id/action_bookmarksFragment_to_characterDetailFragment"
+    app:destination="@id/characterDetailFragment" />
+    </fragment>
+
+
     <fragment
         android:id="@+id/characterFragment"
         android:name="com.guessaname.marvelapp.ui.fragment.CharactersFragment"
@@ -30,6 +38,10 @@
     </fragment>
 
 
+
+
+
+
     <fragment
         android:id="@+id/creatorsFragment"
         android:name="com.guessaname.marvelapp.ui.fragment.CreatorsFragment"
@@ -47,5 +59,28 @@
         <argument
             android:name="creator"
             app:argType="com.guessaname.marvelapp.data.model.Creator" />
+    </fragment>
+
+
+
+
+
+
+    <fragment
+        android:id="@+id/comicFragment"
+        android:name="com.guessaname.marvelapp.ui.fragment.ComicsFragment"
+        tools:layout="@layout/fragment_comic" >
+        <action
+            android:id="@+id/action_comicFragment_to_comicDetailFragment"
+            app:destination="@id/comicDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/comicDetailFragment"
+        android:name="com.guessaname.marvelapp.ui.fragmentdetail.ComicsDetailFragment"
+        tools:layout="@layout/fragment_comic_detail" >
+        <argument
+            android:name="creator"
+            app:argType="com.guessaname.marvelapp.data.model.Comic" />
     </fragment>
 </navigation>
