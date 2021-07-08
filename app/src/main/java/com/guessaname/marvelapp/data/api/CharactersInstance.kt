@@ -11,23 +11,37 @@ object CharactersInstance {
             val logging = HttpLoggingInterceptor()
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
             val client = OkHttpClient.Builder()
-//                .cache(Cache(directory = File(ApcacheDir, "http_cache"),
-//                 maxSize = 50L * 1024L * 1024L
-//                    ))
                 .addInterceptor(logging)
                 .build()
             Retrofit.Builder()
-                .baseUrl(Constant.AVENGERS_URL)
+                .baseUrl(Constant.THOR_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()
     }
 
 
-    val characterapi by lazy {
+    val thorapi by lazy {
         retrofit.create(CharactersAPI::class.java)
     }
 
 
     }
+object IronManInstance{
+    private val retrofit by lazy {
+    val logging = HttpLoggingInterceptor()
+    logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+    val client = OkHttpClient.Builder()
+        .addInterceptor(logging)
+        .build()
+    Retrofit.Builder()
+        .baseUrl(Constant.IRONMAN_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(client)
+        .build()
+    }
 
+    val ironmanapi by lazy {
+        retrofit.create(CharactersAPI::class.java)
+    }
+}
