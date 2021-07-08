@@ -16,6 +16,7 @@ import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.Resource
 import kotlinx.android.synthetic.main.fragment_character.*
 import com.guessaname.marvelapp.databinding.FragmentCharacterBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class CharactersFragment : Fragment() {
