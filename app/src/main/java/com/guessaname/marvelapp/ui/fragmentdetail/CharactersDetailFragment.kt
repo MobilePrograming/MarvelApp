@@ -41,7 +41,7 @@ class CharactersDetailFragment : Fragment() {
 
 
         viewModel = (activity as MainActivity).charactersViewModel
-        recyclerView()
+
         val character = arguments?.getSerializable("character")
         setup(character as Character)
 
@@ -51,7 +51,6 @@ class CharactersDetailFragment : Fragment() {
 
     private fun setup(character: Character) {
         binding.characterDetailExplanation.text = character.characterdescription
-        binding.comicsRecyclerview
         activity?.let {
             val requestOptions = RequestOptions()
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
@@ -64,14 +63,6 @@ class CharactersDetailFragment : Fragment() {
         }
     }
 
-    private fun recyclerView(){
-        var comicsAdapter = ComicsAdapter()
-        comics_recyclerview.apply {
-            adapter = comicsAdapter
-            comicsAdapter.notifyDataSetChanged()
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
-        }
-    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.add("Menu item")
