@@ -32,6 +32,9 @@
         android:id="@+id/characterDetailFragment"
         android:name="com.guessaname.marvelapp.ui.fragmentdetail.CharactersDetailFragment"
         tools:layout="@layout/fragment_character_detail" >
+        <action
+            android:id="@+id/action_characterDetailFragment_to_characterFragment"
+            app:destination="@id/characterFragment" />
         <argument
             android:name="character"
             app:argType="com.guessaname.marvelapp.data.model.Character" />
