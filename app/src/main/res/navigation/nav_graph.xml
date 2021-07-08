@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_characterDetailFragment_to_characterFragment"
             app:destination="@id/characterFragment" />
+        <action
+            android:id="@+id/action_comicFragment_to_comicDetailFragment"
+            app:destination="@id/comicDetailFragment" />
         <argument
             android:name="character"
             app:argType="com.guessaname.marvelapp.data.model.Character" />
