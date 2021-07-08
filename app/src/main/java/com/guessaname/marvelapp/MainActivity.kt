@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
-
+        bottomNavigationView.itemIconTintList = null
         val creatorsRepository = CreatorsRepository()
         val creatorsViewModelProviderFactory = CreatorsViewModelFactory(creatorsRepository)
         creatorsViewModel = ViewModelProvider(this, creatorsViewModelProviderFactory).get(CreatorsViewModel::class.java)

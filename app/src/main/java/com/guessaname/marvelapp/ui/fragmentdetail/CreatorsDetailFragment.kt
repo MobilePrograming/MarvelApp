@@ -62,7 +62,7 @@ class CreatorsDetailFragment : Fragment() {
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.add("Menu item")
-            .setIcon(R.drawable.bookmarks)
+            .setIcon(R.drawable.bookmark_selector)
             .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
     }
 
@@ -72,10 +72,7 @@ class CreatorsDetailFragment : Fragment() {
                 activity?.onBackPressed()
                 return true
             }
-            R.drawable.bookmarks->{
-                activity?.onBackPressed()
-                return true
-            }
+
 
 
         }
