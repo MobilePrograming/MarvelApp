@@ -3,17 +3,18 @@
 
     <item
         android:id="@+id/bookMarkFragment"
-        android:icon="@drawable/bookmarks"
-        android:title="@string/title_bookmarks" />
+        android:icon="@drawable/bookmark_selector"
+        android:title="@string/title_bookmarks"
+    />
 
     <item
         android:id="@+id/characterFragment"
-        android:icon="@drawable/groups"
+        android:icon="@drawable/group_selector"
         android:title="@string/title_characters" />
 
     <item
         android:id="@+id/creatorsFragment"
-        android:icon="@drawable/edit"
+        android:icon="@drawable/edit_selector"
         android:title="@string/title_creators" />
 
 </menu>
