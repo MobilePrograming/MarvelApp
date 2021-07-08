@@ -3,6 +3,8 @@ package com.guessaname.marvelapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -15,6 +17,8 @@ import com.guessaname.marvelapp.data.repository.ComicsRepository
 import com.guessaname.marvelapp.data.repository.CreatorsRepository
 
 import com.guessaname.marvelapp.databinding.ActivityMainBinding
+import com.guessaname.marvelapp.ui.fragment.ComicsFragment
+import com.guessaname.marvelapp.ui.fragmentdetail.CharactersDetailFragment
 import com.guessaname.marvelapp.ui.viewmodel.*
 
 
@@ -32,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)

@@ -19,7 +19,7 @@
             android:layout_height="500dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/character"
-            android:scaleType="fitXY"
+            android:scaleType="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -52,26 +52,13 @@
 
 
         <FrameLayout
+            android:id="@+id/frame_comics"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="1000dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_comics">
+            app:layout_constraintTop_toBottomOf="@id/tv_comics"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/comics_recyclerview"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
