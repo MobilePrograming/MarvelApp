@@ -10,14 +10,11 @@ import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.guessaname.marvelapp.data.repository.CharactersRepository
+import com.guessaname.marvelapp.data.repository.ComicsRepository
 import com.guessaname.marvelapp.data.repository.CreatorsRepository
 
 import com.guessaname.marvelapp.databinding.ActivityMainBinding
-import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
-import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModelFactory
-import com.guessaname.marvelapp.ui.viewmodel.CreatorsViewModel
-import com.guessaname.marvelapp.ui.viewmodel.CreatorsViewModelFactory
-
+import com.guessaname.marvelapp.ui.viewmodel.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var creatorsViewModel: CreatorsViewModel
     lateinit var charactersViewModel: CharactersViewModel
+    lateinit var comicsViewModel: ComicsViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         val characterViewModelProviderFactory = CharactersViewModelFactory(characterRepository)
         charactersViewModel = ViewModelProvider(this, characterViewModelProviderFactory).get(CharactersViewModel::class.java)
 
+        val comicsRepository = ComicsRepository()
+        val comicsViewModelFactory = ComicsViewModelFactory(comicsRepository)
+        comicsViewModel = ViewModelProvider(this, comicsViewModelFactory).get(ComicsViewModel::class.java)
 
 
     }

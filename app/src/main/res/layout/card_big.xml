@@ -25,14 +25,14 @@
             card_view:layout_constraintVertical_bias="0.498"/>
 
         <TextView
-            android:id="@+id/tv_name_small"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_name_big"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
-            android:hint="character_name"
+            android:layout_marginEnd="8dp"
             android:textAllCaps="true"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:textStyle="bold"
             card_view:layout_constraintBottom_toTopOf="@+id/tv_character_short_bio"
@@ -40,13 +40,12 @@
 
         <TextView
             android:id="@+id/tv_character_short_bio"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
-            android:hint="character_short_bio"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="italic"
             card_view:layout_constraintBottom_toBottomOf="@+id/rv_image_big"

@@ -15,7 +15,7 @@ object CreatorsInstance {
             .addInterceptor(logging)
             .build()
         Retrofit.Builder()
-            .baseUrl(Constant.BASE_URL)
+            .baseUrl(Constant.AVENGERS_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

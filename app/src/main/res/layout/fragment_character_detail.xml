@@ -23,28 +23,17 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic[1]"/>
 
-        <TextView
-            android:id="@+id/character_detail_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/character_detail_image" />
 
         <TextView
             android:id="@+id/character_detail_explanation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:paddingBottom="?actionBarSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/character_detail_title" />
+            app:layout_constraintTop_toBottomOf="@id/character_detail_image"/>
 
         <TextView
             android:id="@+id/tv_comics"
@@ -63,10 +52,9 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_comics">
+            app:layout_constraintTop_toBottomOf="@id/tv_comics">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
