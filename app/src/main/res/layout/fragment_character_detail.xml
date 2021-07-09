@@ -68,11 +68,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="464dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/white"
             android:clickable="true"
+            android:onClick="buttonPressed"
             app:layout_constraintEnd_toEndOf="@+id/character_detail_image"
             app:layout_constraintTop_toTopOf="@+id/character_detail_image"
-            app:srcCompat="@drawable/bookmarks"
             android:contentDescription="@string/btnbookmark"/>
 
 
