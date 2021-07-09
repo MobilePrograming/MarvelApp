@@ -1,21 +1,24 @@
 package com.guessaname.marvelapp.ui.fragmentdetail
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.guessaname.marvelapp.MainActivity
 import com.guessaname.marvelapp.R
+import com.guessaname.marvelapp.bookmarksDB.Bookmark
+import com.guessaname.marvelapp.bookmarksDB.BookmarkDB
 import com.guessaname.marvelapp.data.model.Character
 import com.guessaname.marvelapp.databinding.FragmentCharacterDetailBinding
-import com.guessaname.marvelapp.ui.adapter.ComicsAdapter
 import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.autoCleared
 import kotlinx.android.synthetic.main.fragment_character_detail.*
-
 
 class CharactersDetailFragment : Fragment() {
 
@@ -30,23 +33,35 @@ class CharactersDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        setHasOptionsMenu(true)
+        // Inflate the layout for this fragment
         binding = FragmentCharacterDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
         viewModel = (activity as MainActivity).charactersViewModel
-
         val character = arguments?.getSerializable("character")
         setup(character as Character)
 
         (requireActivity() as AppCompatActivity).supportActionBar?.title = character.charactername
 
+       val context = view.context
+        val btn_bookmark = btn_bookmarks
+
+        val db= Room.databaseBuilder(context ,BookmarkDB::class.java,"bookmarks_list").build()
+
+        // TODO: make thread for run DB insert to avoid error
+        //  (Cannot access database on the main thread since it may potentially lock the UI for a long period of time.)
+
+        btn_bookmark.setOnClickListener{
+            val bookmark = Bookmark(1, 1)
+            //db.BookmarksDao.insert(bookmark)  // uncomment
+
+            Toast.makeText(context, "You clicked me.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setup(character: Character) {
@@ -63,22 +78,4 @@ class CharactersDetailFragment : Fragment() {
         }
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        menu.add("Menu item")
-            .setIcon(R.drawable.bookmark_selector)
-            .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
-    }
-
-   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-       when (item.itemId) {
-           android.R.id.home -> {
-               activity?.onBackPressed()
-               return true
-           }
-
-
-       }
-       return super.onOptionsItemSelected(item)
-   }
 }

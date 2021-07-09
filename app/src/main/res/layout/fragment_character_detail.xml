@@ -11,8 +11,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
-
         <ImageView
             android:id="@+id/character_detail_image"
             android:layout_width="match_parent"
@@ -23,20 +21,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[1]"/>
+            tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
 
 
         <TextView
             android:id="@+id/character_detail_explanation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/white"
+            android:layout_height="0dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/tv_comics"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/character_detail_image"/>
+            app:layout_constraintTop_toBottomOf="@id/character_detail_image" />
 
         <TextView
             android:id="@+id/tv_comics"
@@ -61,6 +61,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_comics"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_bookmarks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="464dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="@+id/character_detail_image"
+            app:layout_constraintTop_toTopOf="@+id/character_detail_image"
+            app:srcCompat="@drawable/bookmarks"
+            android:contentDescription="@string/btnbookmark"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
