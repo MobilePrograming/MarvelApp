@@ -1,23 +1,25 @@
 package com.guessaname.marvelapp.ui.fragmentdetail
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.room.Room
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.guessaname.marvelapp.MainActivity
 import com.guessaname.marvelapp.R
+import com.guessaname.marvelapp.bookmarksDB.Bookmark
+import com.guessaname.marvelapp.bookmarksDB.BookmarkDB
 import com.guessaname.marvelapp.data.model.Character
 import com.guessaname.marvelapp.databinding.FragmentCharacterDetailBinding
-import com.guessaname.marvelapp.ui.adapter.ComicsAdapter
 import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.autoCleared
 import kotlinx.android.synthetic.main.fragment_character_detail.*
-import kotlinx.android.synthetic.main.fragment_comic.*
 
 
 class CharactersDetailFragment : Fragment() {
@@ -38,7 +40,6 @@ class CharactersDetailFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -49,6 +50,20 @@ class CharactersDetailFragment : Fragment() {
 
         (requireActivity() as AppCompatActivity).supportActionBar?.title = character.charactername
 
+       val context = view.context
+        val btn_bookmark = btn_bookmarks
+
+        val db= Room.databaseBuilder(context ,BookmarkDB::class.java,"bookmarks_list").build()
+
+        // TODO: make thread for run DB insert to avoid error
+        //  (Cannot access database on the main thread since it may potentially lock the UI for a long period of time.)
+
+        btn_bookmark.setOnClickListener{
+            val bookmark = Bookmark(1, 1)
+            //db.BookmarksDao.insert(bookmark)  // uncomment
+
+            Toast.makeText(context, "You clicked me.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setup(character: Character) {
