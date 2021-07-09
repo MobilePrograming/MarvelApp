@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.room.Room
 import com.bumptech.glide.Glide
@@ -19,6 +20,7 @@ import com.guessaname.marvelapp.databinding.FragmentCharacterDetailBinding
 import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.autoCleared
 import kotlinx.android.synthetic.main.fragment_character_detail.*
+import java.time.chrono.JapaneseEra.values
 
 class CharactersDetailFragment : Fragment() {
 
@@ -48,8 +50,11 @@ class CharactersDetailFragment : Fragment() {
 
         (requireActivity() as AppCompatActivity).supportActionBar?.title = character.charactername
 
-       val context = view.context
+        val context = view.context
         val btn_bookmark = btn_bookmarks
+
+        // TODO: make icon fill when button is pressed
+        //btn_bookmark.setImageIcon(ContextCompat.getDrawable(context, R.drawable.bookmarks))
 
         val db= Room.databaseBuilder(context ,BookmarkDB::class.java,"bookmarks_list").build()
 
@@ -57,6 +62,8 @@ class CharactersDetailFragment : Fragment() {
         //  (Cannot access database on the main thread since it may potentially lock the UI for a long period of time.)
 
         btn_bookmark.setOnClickListener{
+            // TODO: make icon fill when button is pressed
+            //btn_bookmark.setBackgroundResource(R.drawable.bookmarkfill)
             val bookmark = Bookmark(1, 1)
             //db.BookmarksDao.insert(bookmark)  // uncomment
 
@@ -79,3 +86,4 @@ class CharactersDetailFragment : Fragment() {
     }
 
 }
+w
