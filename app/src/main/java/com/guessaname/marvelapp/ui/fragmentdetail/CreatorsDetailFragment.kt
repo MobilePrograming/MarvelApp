@@ -71,9 +71,6 @@ class CreatorsDetailFragment : Fragment() {
                 activity?.onBackPressed()
                 return true
             }
-
-
-
         }
         return super.onOptionsItemSelected(item)
     }
