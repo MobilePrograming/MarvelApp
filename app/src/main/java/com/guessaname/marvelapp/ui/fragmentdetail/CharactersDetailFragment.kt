@@ -1,6 +1,5 @@
 package com.guessaname.marvelapp.ui.fragmentdetail
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +19,6 @@ import com.guessaname.marvelapp.databinding.FragmentCharacterDetailBinding
 import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.autoCleared
 import kotlinx.android.synthetic.main.fragment_character_detail.*
-
 
 class CharactersDetailFragment : Fragment() {
 
