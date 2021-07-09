@@ -86,4 +86,3 @@ class CharactersDetailFragment : Fragment() {
     }
 
 }
-w
