@@ -56,18 +56,20 @@ class CharactersDetailFragment : Fragment() {
         // TODO: make icon fill when button is pressed
         //btn_bookmark.setImageIcon(ContextCompat.getDrawable(context, R.drawable.bookmarks))
 
-        val db= Room.databaseBuilder(context ,BookmarkDB::class.java,"bookmarks_list").build()
+        val db = Room.databaseBuilder(context ,BookmarkDB::class.java,"bookmarks_list").build()
 
-        // TODO: make thread for run DB insert to avoid error
+        // TODO: make thread for run DB insert to avoid error (make fun)
         //  (Cannot access database on the main thread since it may potentially lock the UI for a long period of time.)
 
         btn_bookmark.setOnClickListener{
             // TODO: make icon fill when button is pressed
             //btn_bookmark.setBackgroundResource(R.drawable.bookmarkfill)
-            val bookmark = Bookmark(1, 1)
-            //db.BookmarksDao.insert(bookmark)  // uncomment
 
-            Toast.makeText(context, "You clicked me.", Toast.LENGTH_SHORT).show()
+            val bookmark = Bookmark(1, 1)  // bookmarkId random, characterId from Marvel API call
+
+            //db.BookmarksDao.insert(bookmark)  // uncomment to insert bookmark on DB
+
+            Toast.makeText(context, "Add to bookmarks!", Toast.LENGTH_SHORT).show()
         }
     }
 
