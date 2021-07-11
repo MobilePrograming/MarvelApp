@@ -12,7 +12,6 @@ import com.guessaname.marvelapp.R
 import com.guessaname.marvelapp.data.model.Character
 import kotlinx.android.synthetic.main.card_big.view.*
 
-
 class BookmarksAdapter() : RecyclerView.Adapter<BookmarksAdapter.BookmarkViewHolder>(){
 
     inner class BookmarkViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
@@ -67,7 +66,5 @@ class BookmarksAdapter() : RecyclerView.Adapter<BookmarksAdapter.BookmarkViewHol
     fun setOnItemClicklistener(listener: (Character) -> Unit){
         onItemClickListener = listener
     }
-
-
 
 }

@@ -26,6 +26,9 @@ class Constant {
         //davide KEY: 6599151f190582a1330bf1ca426e61c9
         //davide PRIVATE_KEY: 98b0a1e29a8a13c70d410ed685373518c17c38a5
 
+        //dilo KEY: a963c17810e14be468f08b24b974067f
+        //dilo PRIVATE_KEY: beb4a3e28c067efe29daf453daa0db60e112d599
+
         fun hash(): String {
             val input = "$ts$PRIVATE_KEY$API_KEY"
             val md = MessageDigest.getInstance("MD5")

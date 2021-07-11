@@ -1,26 +1,24 @@
 package com.guessaname.marvelapp.ui.fragmentdetail
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.room.Room
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.guessaname.marvelapp.MainActivity
 import com.guessaname.marvelapp.R
-import com.guessaname.marvelapp.bookmarksDB.Bookmark
-import com.guessaname.marvelapp.bookmarksDB.BookmarkDB
 import com.guessaname.marvelapp.data.model.Character
 import com.guessaname.marvelapp.databinding.FragmentCharacterDetailBinding
 import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.autoCleared
 import kotlinx.android.synthetic.main.fragment_character_detail.*
-import java.time.chrono.JapaneseEra.values
+import java.io.File
+import java.io.FileOutputStream
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
+import kotlin.text.Charsets.UTF_8
 
 class CharactersDetailFragment : Fragment() {
 
@@ -35,8 +33,10 @@ class CharactersDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         // Inflate the layout for this fragment
         binding = FragmentCharacterDetailBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -51,27 +51,26 @@ class CharactersDetailFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = character.charactername
 
         val context = view.context
-        val btn_bookmark = btn_bookmarks
 
-        // TODO: make icon fill when button is pressed
-        //btn_bookmark.setImageIcon(ContextCompat.getDrawable(context, R.drawable.bookmarks))
+        val fileName = "bookmarks.txt"
+        val path = context.getExternalFilesDir(null)
 
-        val db = Room.databaseBuilder(context ,BookmarkDB::class.java,"bookmarks_list").build()
+        val folder = File(path, "bookmarks")
+        folder.mkdirs()
 
-        // TODO: make thread for run DB insert to avoid error (make fun)
-        //  (Cannot access database on the main thread since it may potentially lock the UI for a long period of time.)
+        val file = File(folder, fileName)
 
-        btn_bookmark.setOnClickListener{
-            // TODO: make icon fill when button is pressed
-            //btn_bookmark.setBackgroundResource(R.drawable.bookmarkfill)
+        btn_bookmarks.setOnClickListener {
+            var characterId = character.characterid
+            if (characterId == null) {
+                characterId = 0
+            }
 
-            val bookmark = Bookmark(1, 1)  // bookmarkId random, characterId from Marvel API call
-
-            //db.BookmarksDao.insert(bookmark)  // uncomment to insert bookmark on DB
-
-            Toast.makeText(context, "Add to bookmarks!", Toast.LENGTH_SHORT).show()
+                file.appendText(characterId.toString() + ",")
+                Toast.makeText(context, "${character.charactername} added to bookmarks!", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     private fun setup(character: Character) {
         binding.characterDetailExplanation.text = character.characterdescription
@@ -85,6 +84,16 @@ class CharactersDetailFragment : Fragment() {
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(binding.characterDetailImage)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                activity?.onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }
