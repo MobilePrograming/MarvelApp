@@ -6,10 +6,9 @@ import java.math.BigInteger
 import java.security.MessageDigest
 import java.sql.Timestamp
 
-
 class Constant {
-
     companion object {
+        const val ID_URL = "http://gateway.marvel.com/v1/public/characters/id"
         const val BASE_URL = "http://gateway.marvel.com/v1/public/"
         const val AVENGERS_URL = "http://gateway.marvel.com/v1/public/events/29/"
         val ts = Timestamp(System.currentTimeMillis()).time.toString()
@@ -39,6 +38,4 @@ class Constant {
                     activeNetwork.isConnectedOrConnecting
         }
     }
-
-
 }
