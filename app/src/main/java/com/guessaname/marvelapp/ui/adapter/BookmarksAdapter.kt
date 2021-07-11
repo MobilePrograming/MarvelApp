@@ -11,6 +11,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.guessaname.marvelapp.R
 import com.guessaname.marvelapp.data.model.Character
 import kotlinx.android.synthetic.main.card_big.view.*
+import java.io.File
 
 class BookmarksAdapter() : RecyclerView.Adapter<BookmarksAdapter.BookmarkViewHolder>(){
 
@@ -40,6 +41,7 @@ class BookmarksAdapter() : RecyclerView.Adapter<BookmarksAdapter.BookmarkViewHol
 
     override fun onBindViewHolder(holder: BookmarkViewHolder, position: Int) {
         val character = differ.currentList[position]
+
         holder.itemView.apply {
             val requestOptions = RequestOptions()
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)

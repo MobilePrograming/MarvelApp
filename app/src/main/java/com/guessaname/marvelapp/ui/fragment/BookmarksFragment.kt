@@ -22,7 +22,6 @@ import com.guessaname.marvelapp.ui.adapter.BookmarksAdapter
 import kotlinx.android.synthetic.main.fragment_book_mark.*
 import java.io.File
 
-
 class BookmarksFragment : Fragment() {
 
     private lateinit var viewModel: CharactersViewModel
@@ -43,7 +42,6 @@ class BookmarksFragment : Fragment() {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_book_mark, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -86,11 +84,9 @@ class BookmarksFragment : Fragment() {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let { characterResponse ->
-
                         bookmarksAdapter.differ.submitList(characterResponse.characterData?.results)
                         bookmarksAdapter.notifyDataSetChanged()
                         Log.i(TAG, "Error is: $characterResponse")
-
                     }
                 }
                 is Resource.Error -> {
@@ -105,7 +101,6 @@ class BookmarksFragment : Fragment() {
             }
         })
     }
-
 
     private fun showProgressBar() {
         bookmarkprogressBar.visibility = View.VISIBLE
