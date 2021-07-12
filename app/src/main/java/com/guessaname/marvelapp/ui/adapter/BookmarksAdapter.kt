@@ -11,7 +11,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.guessaname.marvelapp.R
 import com.guessaname.marvelapp.data.model.Character
 import kotlinx.android.synthetic.main.card_big.view.*
-import java.io.File
 
 class BookmarksAdapter() : RecyclerView.Adapter<BookmarksAdapter.BookmarkViewHolder>(){
 

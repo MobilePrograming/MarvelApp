@@ -10,4 +10,5 @@
     <string name="character_name">character_name</string>
     <string name="name" />
     <string name="btnbookmark">btnBookmark</string>
+    <string name="clean_bookmark">Clean Bookmark</string>
 </resources>
