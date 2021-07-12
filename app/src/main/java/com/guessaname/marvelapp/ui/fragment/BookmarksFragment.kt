@@ -59,7 +59,8 @@ class BookmarksFragment : Fragment() {
 
         val text  = file.readText()
         val bookmarks_list:MutableList<String> = text.split(",") as MutableList<String>
-        //Toast.makeText(context, text, Toast.LENGTH_SHORT).show()  // test show bookmarks
+
+        Toast.makeText(context, bookmarks_list.joinToString(","), Toast.LENGTH_SHORT).show()  // TEST (show bookmarks list)
 
         if(fileExist == false){
             hideProgressBar()
@@ -123,5 +124,4 @@ class BookmarksFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
