@@ -35,9 +35,6 @@
         <action
             android:id="@+id/action_characterDetailFragment_to_characterFragment"
             app:destination="@id/characterFragment" />
-        <action
-            android:id="@+id/action_comicFragment_to_comicDetailFragment"
-            app:destination="@id/comicDetailFragment" />
         <argument
             android:name="character"
             app:argType="com.guessaname.marvelapp.data.model.Character" />
@@ -75,18 +72,6 @@
     <fragment
         android:id="@+id/comicFragment"
         android:name="com.guessaname.marvelapp.ui.fragment.ComicsFragment"
-        tools:layout="@layout/fragment_comic" >
-        <action
-            android:id="@+id/action_comicFragment_to_comicDetailFragment"
-            app:destination="@id/comicDetailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_comic" />
 
-    <fragment
-        android:id="@+id/comicDetailFragment"
-        android:name="com.guessaname.marvelapp.ui.fragmentdetail.ComicsDetailFragment"
-        tools:layout="@layout/fragment_comic_detail" >
-        <argument
-            android:name="creator"
-            app:argType="com.guessaname.marvelapp.data.model.Comic" />
-    </fragment>
 </navigation>
