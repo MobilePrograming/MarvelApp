@@ -59,11 +59,6 @@ class CreatorsDetailFragment : Fragment() {
                 .into(binding.creatorsDetailImage)
         }
     }
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        menu.add("Menu item")
-            .setIcon(R.drawable.bookmark_selector)
-            .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

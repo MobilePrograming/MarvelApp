@@ -6,10 +6,9 @@ import java.math.BigInteger
 import java.security.MessageDigest
 import java.sql.Timestamp
 
-
 class Constant {
-
     companion object {
+        const val ID_URL = "http://gateway.marvel.com/v1/public/characters/id/"
         const val BASE_URL = "http://gateway.marvel.com/v1/public/"
         const val AVENGERS_URL = "http://gateway.marvel.com/v1/public/events/29/"
         const val THOR_URL = "http://gateway.marvel.com/v1/public/series/581/"
@@ -26,6 +25,9 @@ class Constant {
         //davide KEY: 6599151f190582a1330bf1ca426e61c9
         //davide PRIVATE_KEY: 98b0a1e29a8a13c70d410ed685373518c17c38a5
 
+        //dilo KEY: a963c17810e14be468f08b24b974067f
+        //dilo PRIVATE_KEY: beb4a3e28c067efe29daf453daa0db60e112d599
+
         fun hash(): String {
             val input = "$ts$PRIVATE_KEY$API_KEY"
             val md = MessageDigest.getInstance("MD5")
@@ -39,6 +41,4 @@ class Constant {
                     activeNetwork.isConnectedOrConnecting
         }
     }
-
-
 }
