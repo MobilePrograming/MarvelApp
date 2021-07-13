@@ -10,9 +10,7 @@ import kotlinx.coroutines.launch
 import okhttp3.internal.wait
 import retrofit2.Response
 
-class CharactersViewModel(
-    val charactersRepository: CharactersRepository
-):ViewModel(){
+class CharactersViewModel(val charactersRepository: CharactersRepository):ViewModel(){
 
     val characters: MutableLiveData<Resource<CharacterResponse>> = MutableLiveData()
     //val responses = emptyList<Any>()
