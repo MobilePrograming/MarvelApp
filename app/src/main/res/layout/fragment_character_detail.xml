@@ -72,6 +72,7 @@
             android:onClick="buttonPressed"
             android:backgroundTint="@color/white"
             android:src="@drawable/bookmarks"
+            app:borderWidth="0dp"
             app:layout_constraintEnd_toEndOf="@+id/character_detail_image"
             app:layout_constraintTop_toTopOf="@+id/character_detail_image"
             android:contentDescription="@string/btnbookmark"/>
