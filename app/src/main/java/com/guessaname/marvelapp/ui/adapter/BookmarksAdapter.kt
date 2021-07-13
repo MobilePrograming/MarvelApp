@@ -42,6 +42,7 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
 
         val characterId = bookmarks_list[position]
         val character = differ.currentList.singleOrNull(){it.characterid.toString() == characterId}
+
         if (character != null) {
             holder.itemView.tv_name_big.text = character.charactername
             holder.itemView.tv_character_short_bio.text = character.characterdescription

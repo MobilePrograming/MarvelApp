@@ -53,10 +53,12 @@ class ComicsFragment : Fragment() {
             val bundle = Bundle().apply {
                 putSerializable("character",it)
             }
+            /*
             findNavController().navigate(
                 R.id.action_comicFragment_to_comicDetailFragment,
                 bundle
             )
+            */
         }
 
         viewModel.comics.observe(viewLifecycleOwner, Observer { response ->
