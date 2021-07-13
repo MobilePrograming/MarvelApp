@@ -7,16 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.guessaname.marvelapp.MainActivity
 import com.guessaname.marvelapp.R
-import com.guessaname.marvelapp.ui.adapter.CharactersAdapter
 import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.Resource
-import kotlinx.android.synthetic.main.fragment_character.*
 import com.guessaname.marvelapp.databinding.FragmentBookMarkBinding
 import com.guessaname.marvelapp.ui.adapter.BookmarksAdapter
 import kotlinx.android.synthetic.main.fragment_book_mark.*
@@ -25,7 +22,7 @@ import java.io.File
 class BookmarksFragment : Fragment() {
 
     private lateinit var viewModel: CharactersViewModel
-    private lateinit var bookmarksAdapter: BookmarksAdapter
+    private lateinit var bookmarksAdapter : BookmarksAdapter
     private var _binding: FragmentBookMarkBinding? = null
     private val binding get() = _binding!!
 
@@ -68,7 +65,14 @@ class BookmarksFragment : Fragment() {
         }
 
         viewModel = (activity as MainActivity).charactersViewModel
-        recyclerView()
+
+        bookmarksAdapter = BookmarksAdapter(bookmarks_list)
+
+        rvBookmark.apply {
+            adapter = bookmarksAdapter
+            bookmarksAdapter.notifyDataSetChanged()
+            layoutManager = GridLayoutManager(activity, 1, GridLayoutManager.VERTICAL,false)
+        }
 
         bookmarksAdapter.setOnItemClicklistener {
             val bundle = Bundle().apply {
@@ -101,6 +105,7 @@ class BookmarksFragment : Fragment() {
                 }
             }
         })
+
     }
 
     private fun showProgressBar() {
@@ -112,12 +117,7 @@ class BookmarksFragment : Fragment() {
     }
 
     private fun recyclerView(){
-        bookmarksAdapter = BookmarksAdapter()
-        rvBookmark.apply {
-            adapter = bookmarksAdapter
-            bookmarksAdapter.notifyDataSetChanged()
-            layoutManager = GridLayoutManager(activity, 1, GridLayoutManager.VERTICAL,false)
-        }
+
     }
 
     override fun onDestroyView() {
