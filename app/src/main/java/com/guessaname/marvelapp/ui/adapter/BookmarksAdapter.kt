@@ -55,9 +55,6 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(holder.itemView.rv_image_big)
 
-            holder.itemView.tv_name_big.text = character.charactername
-            holder.itemView.tv_character_short_bio.text = character.characterdescription
-
             holder.itemView.setOnClickListener {
                 onItemClickListener?.let { it(character) }
             }
