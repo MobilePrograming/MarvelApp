@@ -49,6 +49,8 @@ class BookmarksFragment : Fragment() {
         val path = context.getExternalFilesDir(null)
 
         val folder = File(path, "bookmarks")
+        folder.mkdirs() // create folder if not yet created
+
         val file = File(folder, fileName)
 
         val fileExist = file.exists()
