@@ -12,6 +12,7 @@ import com.guessaname.marvelapp.data.model.Creator
 import com.guessaname.marvelapp.databinding.FragmentCreatorsDetailBinding
 import com.guessaname.marvelapp.ui.viewmodel.CreatorsViewModel
 import com.guessaname.marvelapp.utils.autoCleared
+import java.io.File
 
 
 class CreatorsDetailFragment : Fragment() {
@@ -44,6 +45,21 @@ class CreatorsDetailFragment : Fragment() {
 
         (requireActivity() as AppCompatActivity).supportActionBar?.title = creator.name
 
+        val context = view.context // get actual context
+        val creatorId = creator.id
+
+        val fileNameId = "characterid.txt"
+
+        val path = context.getExternalFilesDir(null) // return file path in internal storage
+
+        val folder = File(path, "bookmarks") // initialize file folder
+        folder.mkdirs() // create folder if not yet created
+
+        val fileid = File(folder, fileNameId)
+
+        fileid.createNewFile()
+        fileid.writeText(creatorId.toString())
+
     }
 
     private fun setup(creator: Creator) {
@@ -56,7 +72,7 @@ class CreatorsDetailFragment : Fragment() {
                 .load("${creator.thumbnail?.path}.${creator.thumbnail?.extension}")
                 .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_foreground)
-                .into(binding.creatorsDetailImage)
+                .into(binding.creatorDetailImage)
         }
     }
 
