@@ -107,6 +107,7 @@ class CharactersDetailFragment : Fragment() {
     private fun setup(character: Character) {
 
         binding.characterDetailExplanation.text = character.description
+
         activity?.let {
             val requestOptions = RequestOptions()
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
