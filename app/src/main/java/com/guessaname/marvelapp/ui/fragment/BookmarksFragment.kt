@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isEmpty
+import androidx.core.view.isNotEmpty
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -62,9 +64,11 @@ class BookmarksFragment : Fragment() {
 
         //Toast.makeText(context, bookmarks_list.joinToString(","), Toast.LENGTH_SHORT).show()  // TEST (show bookmarks list)
 
-        if(fileExist == false){
+        if(text.isEmpty() || file.exists() == false){
             hideProgressBar()
-            Toast.makeText(context, "You haven't added any bookmarks yet", Toast.LENGTH_SHORT).show()
+            showTvNotBookmarks()
+        }else{
+            hideTvNotBookmarks()
         }
 
         viewModel = (activity as MainActivity).charactersViewModel
@@ -111,16 +115,20 @@ class BookmarksFragment : Fragment() {
 
     }
 
+    private fun showTvNotBookmarks() {
+        tv_no_bookamrks.visibility = View.VISIBLE
+    }
+
+    private fun hideTvNotBookmarks() {
+        tv_no_bookamrks.visibility = View.GONE
+    }
+
     private fun showProgressBar() {
         bookmarkprogressBar.visibility = View.VISIBLE
     }
 
     private fun hideProgressBar() {
         bookmarkprogressBar.visibility = View.GONE
-    }
-
-    private fun recyclerView(){
-
     }
 
     override fun onDestroyView() {
