@@ -117,12 +117,10 @@ class BookmarksFragment : Fragment() {
 
     private fun showTvNotBookmarks() {
         tv_no_bookamrks.visibility = View.VISIBLE
-        iv_gif.visibility = View.VISIBLE
     }
 
     private fun hideTvNotBookmarks() {
         tv_no_bookamrks.visibility = View.GONE
-        iv_gif.visibility = View.GONE
     }
 
     private fun showProgressBar() {
