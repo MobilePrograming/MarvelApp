@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:paddingBottom="?actionBarSize">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBookmark"
         android:layout_width="match_parent"
@@ -46,5 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rvBookmark"
         app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

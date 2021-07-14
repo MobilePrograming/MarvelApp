@@ -3,8 +3,6 @@ package com.guessaname.marvelapp.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -45,8 +43,11 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
 
         if (character != null) {
             holder.itemView.tv_name_big.text = character.charactername
-            holder.itemView.tv_character_short_bio.text = character.characterdescription
-
+            if(character.characterdescription.isNullOrBlank()){
+                holder.itemView.tv_character_short_bio.text = "Bio not available"
+            }else {
+                holder.itemView.tv_character_short_bio.text = character.characterdescription
+            }
             val requestOptions = RequestOptions()
 
             Glide.with(holder.itemView)
@@ -63,6 +64,14 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
 
     override fun getItemCount(): Int {
         return bookmarks_list.size
+    }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 
     private var onItemClickListener:((Character) -> Unit)? = null
