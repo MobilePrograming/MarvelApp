@@ -42,11 +42,11 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
         val character = differ.currentList.singleOrNull(){it.id.toString() == characterId}
 
         if (character != null) {
-            holder.itemView.tv_name_big.text = character.charactername
-            if(character.characterdescription.isNullOrBlank()){
+            holder.itemView.tv_name_big.text = character.name
+            if(character.description.isNullOrBlank()){
                 holder.itemView.tv_character_short_bio.text = "Bio not available"
             }else {
-                holder.itemView.tv_character_short_bio.text = character.characterdescription
+                holder.itemView.tv_character_short_bio.text = character.description
             }
 
             val requestOptions = RequestOptions()
