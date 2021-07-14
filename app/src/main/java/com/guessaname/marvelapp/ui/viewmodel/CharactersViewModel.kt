@@ -18,12 +18,12 @@ class CharactersViewModel(val charactersRepository: CharactersRepository):ViewMo
 
     init {
         getCharacters()
+
     }
     fun getCharacters() = viewModelScope.launch {
         characters.postValue(Resource.Loading())
         val response = charactersRepository.getThor()
        // val response2 = charactersRepository.getIronMan()
-
 
         characters.postValue(handleResponse(response))
     }

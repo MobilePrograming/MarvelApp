@@ -16,6 +16,7 @@ import com.guessaname.marvelapp.ui.viewmodel.CreatorsViewModel
 import com.guessaname.marvelapp.utils.Resource
 import kotlinx.android.synthetic.main.fragment_creators.*
 import com.guessaname.marvelapp.databinding.FragmentCreatorsBinding
+import java.io.File
 
 class CreatorsFragment : Fragment() {
 
@@ -40,9 +41,8 @@ class CreatorsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         viewModel = (activity as MainActivity).creatorsViewModel
+
         recyclerView()
 
         creatorsAdapter.setOnItemClicklistener {
