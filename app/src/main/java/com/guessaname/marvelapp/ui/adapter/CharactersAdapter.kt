@@ -20,7 +20,7 @@ class CharactersAdapter() : RecyclerView.Adapter<CharactersAdapter.CharacterView
 
     private val differCallback = object :DiffUtil.ItemCallback<Character> (){
         override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
-            return oldItem.charactername == newItem.charactername
+            return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean {
@@ -47,11 +47,11 @@ class CharactersAdapter() : RecyclerView.Adapter<CharactersAdapter.CharacterView
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
             requestOptions.error(R.drawable.ic_launcher_foreground)
             Glide.with(this)
-                .load("${character.characterthumbnail?.path}.${character.characterthumbnail?.extension}")
+                .load("${character.tumbnail?.path}.${character.tumbnail?.extension}")
                 .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(rv_image_small)
-            tv_name_small.text = character.charactername
+            tv_name_small.text = character.name
             setOnClickListener {
                 onItemClickListener?.let { it(character) }
             }

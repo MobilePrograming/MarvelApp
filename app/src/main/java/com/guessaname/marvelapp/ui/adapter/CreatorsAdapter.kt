@@ -20,7 +20,7 @@ class CreatorsAdapter() : RecyclerView.Adapter<CreatorsAdapter.CreatorViewHolder
 
     private val differCallback = object :DiffUtil.ItemCallback<Creator> (){
         override fun areItemsTheSame(oldItem: Creator, newItem: Creator): Boolean {
-            return oldItem.creatorname == newItem.creatorname
+            return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(oldItem: Creator, newItem: Creator): Boolean {
@@ -47,11 +47,11 @@ class CreatorsAdapter() : RecyclerView.Adapter<CreatorsAdapter.CreatorViewHolder
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
             requestOptions.error(R.drawable.ic_launcher_foreground)
             Glide.with(this)
-                .load("${creator.creatorthumbnail?.path}.${creator.creatorthumbnail?.extension}")
+                .load("${creator.thumbnail?.path}.${creator.thumbnail?.extension}")
                 .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(rv_image_small)
-            tv_name_small.text = creator.creatorname
+            tv_name_small.text = creator.name
             setOnClickListener {
                 onItemClickListener?.let { it(creator) }
             }

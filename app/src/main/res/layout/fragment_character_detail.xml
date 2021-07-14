@@ -23,6 +23,13 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
 
+        <TextView
+            android:id="@+id/collection_uri"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
 
         <TextView
             android:id="@+id/character_detail_explanation"

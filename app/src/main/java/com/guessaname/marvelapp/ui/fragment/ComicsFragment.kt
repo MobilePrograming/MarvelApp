@@ -1,23 +1,32 @@
 package com.guessaname.marvelapp.ui.fragment
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.guessaname.marvelapp.MainActivity
 import com.guessaname.marvelapp.R
+import com.guessaname.marvelapp.data.model.Comic
+import com.guessaname.marvelapp.databinding.ActivityMainBinding
+import com.guessaname.marvelapp.databinding.FragmentCharacterDetailBinding
 import com.guessaname.marvelapp.ui.adapter.ComicsAdapter
 import com.guessaname.marvelapp.ui.viewmodel.ComicsViewModel
 import com.guessaname.marvelapp.utils.Resource
 import kotlinx.android.synthetic.main.fragment_comic.*
 import com.guessaname.marvelapp.databinding.FragmentComicBinding
+import com.guessaname.marvelapp.databinding.FragmentCreatorsDetailBinding
+import com.guessaname.marvelapp.ui.fragmentdetail.CharactersDetailFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_character_detail.*
 
 
@@ -51,14 +60,9 @@ class ComicsFragment : Fragment() {
 
         comicsAdapter.setOnItemClicklistener {
             val bundle = Bundle().apply {
-                putSerializable("character",it)
+                putSerializable("comic",it)
             }
-            /*
-            findNavController().navigate(
-                R.id.action_comicFragment_to_comicDetailFragment,
-                bundle
-            )
-            */
+
         }
 
         viewModel.comics.observe(viewLifecycleOwner, Observer { response ->
