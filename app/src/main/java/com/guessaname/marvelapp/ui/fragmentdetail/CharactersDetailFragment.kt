@@ -1,5 +1,6 @@
 package com.guessaname.marvelapp.ui.fragmentdetail
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -16,12 +17,13 @@ import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.autoCleared
 import kotlinx.android.synthetic.main.fragment_character_detail.*
 import java.io.File
+import android.content.SharedPreferences
+
 
 class CharactersDetailFragment : Fragment() {
 
     private var binding: FragmentCharacterDetailBinding by autoCleared()
     private lateinit var viewModel: CharactersViewModel
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +37,6 @@ class CharactersDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentCharacterDetailBinding.inflate(inflater, container, false)
 
-
-
-
         return binding.root
     }
 
@@ -45,6 +44,7 @@ class CharactersDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = (activity as MainActivity).charactersViewModel
+
         val character = arguments?.getSerializable("character")
         setup(character as Character)
 
@@ -52,7 +52,11 @@ class CharactersDetailFragment : Fragment() {
 
         val context = view.context // get actual context
         var characterId = character.id
+
+        val fileNameId = "characterid.txt"
+
         val fileName = "bookmarks.txt"  // bookmarks list is store in this file
+
         val path = context.getExternalFilesDir(null) // return file path in internal storage
 
         val folder = File(path, "bookmarks") // initialize file folder
@@ -60,7 +64,12 @@ class CharactersDetailFragment : Fragment() {
 
         val file = File(folder, fileName) // initialize file
 
+        val fileid = File(folder, fileNameId)
+
         file.createNewFile()
+        fileid.createNewFile()
+
+        fileid.writeText(characterId.toString())
 
         val text  = file.readText() // get text from file as string
         val bookmarks_list:MutableList<String> = text.split(",") as MutableList<String> // create bookmarks list from file

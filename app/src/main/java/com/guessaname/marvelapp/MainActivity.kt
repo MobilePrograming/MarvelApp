@@ -21,6 +21,8 @@ import com.guessaname.marvelapp.databinding.ActivityMainBinding
 import com.guessaname.marvelapp.ui.fragment.ComicsFragment
 import com.guessaname.marvelapp.ui.fragmentdetail.CharactersDetailFragment
 import com.guessaname.marvelapp.ui.viewmodel.*
+import kotlinx.coroutines.Job
+import java.io.File
 
 
 class MainActivity : AppCompatActivity() {
@@ -64,6 +66,6 @@ class MainActivity : AppCompatActivity() {
         val comicsRepository = ComicsRepository()
         val comicsViewModelFactory = ComicsViewModelFactory(comicsRepository)
         comicsViewModel = ViewModelProvider(this, comicsViewModelFactory).get(ComicsViewModel::class.java)
-        comicsViewModel.getComics(1009664)
+
     }
 }
