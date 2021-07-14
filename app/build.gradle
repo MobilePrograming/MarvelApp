@@ -88,7 +88,6 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_android_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version"
 
-
     // Dagger Hilt
     implementation 'com.google.dagger:hilt-android:2.37'
     kapt "com.google.dagger:hilt-compiler:2.37"
@@ -105,4 +104,7 @@ dependencies {
 
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //gif
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
 }

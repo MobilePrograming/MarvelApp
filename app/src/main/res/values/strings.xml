@@ -11,4 +11,5 @@
     <string name="name" />
     <string name="btnbookmark">btnBookmark</string>
     <string name="clean_bookmark">Clean Bookmark</string>
+    <string name="you_haven_t_added_nany_bookmarks_yet_n_ngo_to_characters_and_add_your_favourite_hero">You haven\'t added \nany bookmarks yet\n\nGo to characters and add your favourite hero</string>
 </resources>

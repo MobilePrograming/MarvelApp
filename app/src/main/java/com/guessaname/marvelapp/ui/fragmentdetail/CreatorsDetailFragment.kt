@@ -47,7 +47,7 @@ class CreatorsDetailFragment : Fragment() {
     }
 
     private fun setup(creator: Creator) {
-        binding.creatorsDetailName.text = creator.creatorname
+        //binding.creatorsDetailName.text = creator.creatorname
         activity?.let {
             val requestOptions = RequestOptions()
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
