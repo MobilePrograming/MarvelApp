@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.guessaname.marvelapp.data.model.Character
 import com.guessaname.marvelapp.data.repository.CharactersRepository
 import com.guessaname.marvelapp.data.repository.ComicsRepository
 import com.guessaname.marvelapp.data.repository.CreatorsRepository
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val navHostFragment: NavHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
@@ -62,7 +64,6 @@ class MainActivity : AppCompatActivity() {
         val comicsRepository = ComicsRepository()
         val comicsViewModelFactory = ComicsViewModelFactory(comicsRepository)
         comicsViewModel = ViewModelProvider(this, comicsViewModelFactory).get(ComicsViewModel::class.java)
-
-
+        comicsViewModel.getComics(1009664)
     }
 }

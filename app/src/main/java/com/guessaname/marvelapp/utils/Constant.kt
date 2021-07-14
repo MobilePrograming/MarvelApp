@@ -8,8 +8,7 @@ import java.sql.Timestamp
 
 class Constant {
     companion object {
-        const val ID_URL = "http://gateway.marvel.com/v1/public/characters/id/"
-        const val BASE_URL = "http://gateway.marvel.com/v1/public/"
+        const val BASE_URL = "http://gateway.marvel.com/v1/public/characters/"
         const val AVENGERS_URL = "http://gateway.marvel.com/v1/public/events/29/"
         val ts = Timestamp(System.currentTimeMillis()).time.toString()
         const val API_KEY = "6599151f190582a1330bf1ca426e61c9"

@@ -3,6 +3,7 @@ package com.guessaname.marvelapp.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.guessaname.marvelapp.data.model.Character
 import com.guessaname.marvelapp.data.model.ComicResponse
 import com.guessaname.marvelapp.data.repository.ComicsRepository
 import com.guessaname.marvelapp.utils.Resource
@@ -15,12 +16,9 @@ class ComicsViewModel(
 
     val comics: MutableLiveData<Resource<ComicResponse>> = MutableLiveData()
 
-    init {
-        getComics()
-    }
-    fun getComics() = viewModelScope.launch {
+    fun getComics(id: Int) = viewModelScope.launch {
         comics.postValue(Resource.Loading())
-        val response = comicsRepository.getComics()
+        val response = comicsRepository.getComics(id)
         comics.postValue(handleResponse(response))
     }
 

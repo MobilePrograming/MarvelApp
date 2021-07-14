@@ -7,16 +7,14 @@ import java.io.Serializable
 data class Character (
     @SerializedName("id")
     @Expose
-    var characterid: Int? = null,
+    var id: Int,
     @SerializedName("name")
     @Expose
-    var charactername: String? = null,
+    var name: String? = null,
     @SerializedName("thumbnail")
     @Expose
-    var characterthumbnail: Thumbnail? = null,
+    var tumbnail: Thumbnail? = null,
     @SerializedName("description")
     @Expose
-    var characterdescription: String? = null,
-    val characterimages:List<Images>,
-    //val comics:List<Comic>
+    var description: String? = null,
 ) : Serializable
