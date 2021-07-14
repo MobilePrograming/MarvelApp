@@ -1,5 +1,6 @@
 package com.guessaname.marvelapp.ui.fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.Resource
 import com.guessaname.marvelapp.databinding.FragmentBookMarkBinding
 import com.guessaname.marvelapp.ui.adapter.BookmarksAdapter
+import kotlinx.android.synthetic.main.card_big.*
 import kotlinx.android.synthetic.main.fragment_book_mark.*
 import java.io.File
 
