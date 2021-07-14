@@ -16,10 +16,6 @@ import com.guessaname.marvelapp.ui.viewmodel.CharactersViewModel
 import com.guessaname.marvelapp.utils.autoCleared
 import kotlinx.android.synthetic.main.fragment_character_detail.*
 import java.io.File
-import java.io.FileOutputStream
-import java.nio.charset.Charset
-import java.nio.charset.StandardCharsets.UTF_8
-import kotlin.text.Charsets.UTF_8
 
 class CharactersDetailFragment : Fragment() {
 
@@ -61,6 +57,8 @@ class CharactersDetailFragment : Fragment() {
 
         val file = File(folder, fileName) // initialize file
 
+        file.createNewFile()
+
         val text  = file.readText() // get text from file as string
         val bookmarks_list:MutableList<String> = text.split(",") as MutableList<String> // create bookmarks list from file
 
@@ -91,7 +89,6 @@ class CharactersDetailFragment : Fragment() {
 
                 btn_bookmarks.setImageDrawable(getDrawable(context, R.drawable.bookmarks)) // change icon to icon empty
                 Toast.makeText(context, "${character.charactername} remove from bookmarks!", Toast.LENGTH_SHORT).show()
-
             }
         }
     }
