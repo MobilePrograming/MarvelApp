@@ -53,6 +53,8 @@ class BookmarksFragment : Fragment() {
 
         val fileExist = file.exists()
 
+        file.createNewFile()
+
         val text  = file.readText()
         val bookmarks_list:MutableList<String> = text.split(",") as MutableList<String>
 
