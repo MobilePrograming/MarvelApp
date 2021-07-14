@@ -42,8 +42,12 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
         val character = differ.currentList.singleOrNull(){it.id.toString() == characterId}
 
         if (character != null) {
-            holder.itemView.tv_name_big.text = character.name
-            holder.itemView.tv_character_short_bio.text = character.description
+            holder.itemView.tv_name_big.text = character.charactername
+            if(character.characterdescription.isNullOrBlank()){
+                holder.itemView.tv_character_short_bio.text = "Bio not available"
+            }else {
+                holder.itemView.tv_character_short_bio.text = character.characterdescription
+            }
 
             val requestOptions = RequestOptions()
 
@@ -61,6 +65,14 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
 
     override fun getItemCount(): Int {
         return bookmarks_list.size
+    }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 
     private var onItemClickListener:((Character) -> Unit)? = null
