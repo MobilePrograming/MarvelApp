@@ -20,7 +20,7 @@ class ComicsAdapter() : RecyclerView.Adapter<ComicsAdapter.ComicViewHolder>(){
 
     private val differCallback = object :DiffUtil.ItemCallback<Comic> (){
         override fun areItemsTheSame(oldItem: Comic, newItem: Comic): Boolean {
-            return oldItem.comictitle == newItem.comictitle
+            return oldItem.title == newItem.title
         }
 
         override fun areContentsTheSame(oldItem: Comic, newItem: Comic): Boolean {
@@ -47,11 +47,11 @@ class ComicsAdapter() : RecyclerView.Adapter<ComicsAdapter.ComicViewHolder>(){
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
             requestOptions.error(R.drawable.ic_launcher_foreground)
             Glide.with(this)
-                .load("${comic.comicthumbnail?.path}.${comic.comicthumbnail?.extension}")
+                .load("${comic.thumbnail?.path}.${comic.thumbnail?.extension}")
                 .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(rv_image_small)
-            tv_name_small.text = comic.comictitle
+            tv_name_small.text = comic.title
             setOnClickListener {
                 onItemClickListener?.let { it(comic) }
             }

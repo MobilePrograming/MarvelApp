@@ -42,18 +42,20 @@ class CreatorsDetailFragment : Fragment() {
         val creator = arguments?.getSerializable("creator")
         setup(creator as Creator)
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = creator.creatorname
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = creator.name
 
     }
 
     private fun setup(creator: Creator) {
+
         //binding.creatorsDetailName.text = creator.creatorname
+
         activity?.let {
             val requestOptions = RequestOptions()
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
             requestOptions.error(R.drawable.ic_launcher_foreground)
             Glide.with(this)
-                .load("${creator.creatorthumbnail?.path}.${creator.creatorthumbnail?.extension}")
+                .load("${creator.thumbnail?.path}.${creator.thumbnail?.extension}")
                 .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(binding.creatorsDetailImage)

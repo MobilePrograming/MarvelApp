@@ -5,15 +5,15 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Creator (
+
     @SerializedName("id")
     @Expose
-    var creatorid: Int? = null,
+    var id: Int? = null,
     @SerializedName("fullName")
     @Expose
-    var creatorname: String? = null,
+    var name: String? = null,
     @SerializedName("thumbnail")
     @Expose
-    var creatorthumbnail: Thumbnail? = null,
-    @Expose
-    val creatorimages:List<Images>
+    var thumbnail: Thumbnail? = null,
+
 ) :Serializable

@@ -10,13 +10,13 @@ data class Comic (
     var comicid: Int? = null,
     @SerializedName("title")
     @Expose
-    var comictitle: String? = null,
+    var title: String? = null,
     @SerializedName("thumbnail")
     @Expose
-    var comicthumbnail: Thumbnail? = null,
+    var thumbnail: Thumbnail? = null,
     @SerializedName("description")
     @Expose
-    var comicdescription: String? = null,
-    val comicimages:List<Images>,
-    //val comics:List<Comic>
-) : Serializable
+    var description: String? = null,
+    val images:List<Images>,
+
+    ) : Serializable

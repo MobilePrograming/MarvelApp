@@ -20,7 +20,7 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
 
     private val differCallback = object :DiffUtil.ItemCallback<Character> (){
         override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
-            return oldItem.charactername == newItem.charactername
+            return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean {
@@ -39,7 +39,7 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
     override fun onBindViewHolder(holder: BookmarkViewHolder, position: Int) {
 
         val characterId = bookmarks_list[position]
-        val character = differ.currentList.singleOrNull(){it.characterid.toString() == characterId}
+        val character = differ.currentList.singleOrNull(){it.id.toString() == characterId}
 
         if (character != null) {
             holder.itemView.tv_name_big.text = character.charactername
@@ -48,10 +48,11 @@ class BookmarksAdapter(private val bookmarks_list: MutableList<String>) : Recycl
             }else {
                 holder.itemView.tv_character_short_bio.text = character.characterdescription
             }
+
             val requestOptions = RequestOptions()
 
             Glide.with(holder.itemView)
-                .load("${character.characterthumbnail?.path}.${character.characterthumbnail?.extension}")
+                .load("${character.tumbnail?.path}.${character.tumbnail?.extension}")
                 .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(holder.itemView.rv_image_big)

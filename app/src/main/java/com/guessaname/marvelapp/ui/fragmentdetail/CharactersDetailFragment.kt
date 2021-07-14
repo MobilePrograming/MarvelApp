@@ -22,6 +22,7 @@ class CharactersDetailFragment : Fragment() {
     private var binding: FragmentCharacterDetailBinding by autoCleared()
     private lateinit var viewModel: CharactersViewModel
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -34,6 +35,9 @@ class CharactersDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentCharacterDetailBinding.inflate(inflater, container, false)
 
+
+
+
         return binding.root
     }
 
@@ -44,11 +48,10 @@ class CharactersDetailFragment : Fragment() {
         val character = arguments?.getSerializable("character")
         setup(character as Character)
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = character.charactername
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = character.name
 
         val context = view.context // get actual context
-        var characterId = character.characterid
-
+        var characterId = character.id
         val fileName = "bookmarks.txt"  // bookmarks list is store in this file
         val path = context.getExternalFilesDir(null) // return file path in internal storage
 
@@ -80,7 +83,7 @@ class CharactersDetailFragment : Fragment() {
                 state = false  //item to delete
 
                 btn_bookmarks.setImageDrawable(getDrawable(context, R.drawable.bookmarkfill)) // change icon to icon fill
-                Toast.makeText(context, "${character.charactername} add to bookmarks!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "${character.name} add to bookmarks!", Toast.LENGTH_SHORT).show()
 
             } else { // remove character to bookmark list
 
@@ -88,20 +91,22 @@ class CharactersDetailFragment : Fragment() {
                 file.writeText(updateText) // update bookmarks list
 
                 btn_bookmarks.setImageDrawable(getDrawable(context, R.drawable.bookmarks)) // change icon to icon empty
-                Toast.makeText(context, "${character.charactername} remove from bookmarks!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "${character.name} remove from bookmarks!", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
 
     private fun setup(character: Character) {
-        binding.characterDetailExplanation.text = character.characterdescription
+
+        binding.characterDetailExplanation.text = character.description
         activity?.let {
             val requestOptions = RequestOptions()
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
             requestOptions.error(R.drawable.ic_launcher_foreground)
             Glide.with(this)
-                .load("${character.characterthumbnail?.path}.${character.characterthumbnail?.extension}")
+                .load("${character.tumbnail?.path}.${character.tumbnail?.extension}")
                 .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(binding.characterDetailImage)
@@ -114,6 +119,7 @@ class CharactersDetailFragment : Fragment() {
                 activity?.onBackPressed()
                 return true
             }
+
         }
         return super.onOptionsItemSelected(item)
     }
